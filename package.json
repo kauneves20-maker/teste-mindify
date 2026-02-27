@@ -1,0 +1,32 @@
+{
+  "name": "twenty-crm-easypanel",
+  "version": "1.0.0",
+  "description": "Twenty CRM - Open Source CRM optimized for Easypanel deployment",
+  "main": "dist/packages/twenty-server/src/main.js",
+  "scripts": {
+    "build": "yarn build:server && yarn build:front",
+    "build:server": "cd packages/twenty-server && yarn build",
+    "build:front": "cd packages/twenty-front && yarn build",
+    "start": "node dist/packages/twenty-server/src/main.js",
+    "dev": "yarn dev:server",
+    "dev:server": "cd packages/twenty-server && yarn dev",
+    "migrate": "cd packages/twenty-server && yarn typeorm migration:run",
+    "worker": "cd packages/twenty-server && yarn worker:prod"
+  },
+  "keywords": [
+    "crm",
+    "twenty",
+    "open-source",
+    "easypanel",
+    "deployment"
+  ],
+  "author": "Twenty",
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=3.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

@@ -1,0 +1,39 @@
+# Nixpacks configuration for Twenty CRM on Easypanel
+# This file enables automatic detection and build by Easypanel
+
+[build]
+# Use Node.js for building
+cmd = "yarn install && yarn build"
+
+[start]
+# Start the Twenty server
+cmd = "node dist/packages/twenty-server/src/main.js"
+
+# Environment variables
+[env]
+NODE_ENV = "production"
+NODE_PORT = "3000"
+YARN_PRODUCTION = "false"
+
+# System packages
+[system]
+pkgs = [
+    "python3",
+    "make",
+    "g++",
+    "git",
+    "curl",
+    "postgresql_client",
+]
+
+# Cache directories
+[cache]
+dirs = [
+    ".yarn/cache",
+    "node_modules",
+    ".next",
+]
+
+# Health check
+[health]
+path = "/healthz"
